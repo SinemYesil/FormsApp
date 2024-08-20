@@ -34,4 +34,9 @@ public class Repository
             return _categaries;
         }
     }
+
+    public static void CreateProduct(Product entity)
+    {
+        _products.Add(entity);
+    }
 }
