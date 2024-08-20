@@ -1,4 +1,6 @@
-﻿namespace FormsApp.Models;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+namespace FormsApp.Models;
 
 public class Repository
 {
@@ -37,6 +39,8 @@ public class Repository
 
     public static void CreateProduct(Product entity)
     {
+         
+     
         _products.Add(entity);
     }
 }
