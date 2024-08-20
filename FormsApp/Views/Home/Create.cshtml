@@ -1,32 +1,30 @@
-﻿@{
+﻿@model Product
+@{
 ViewData["Title"] = "Create";
 }
-<form action="/Home/Create" method="post">
+<form asp-controller="Home" asp-action="Create" method="post">
     <div class="mb-3">
-        <label for="Name" class="form-label">Name</label>
-        <input type="text" name="Name" id="Name" class="form-control" required>
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" required>
     </div>
     <div class="mb-3">
-        <label for="Price" class="form-label">Price</label>
-        <input type="number" name="Price" id="Price" class="form-control" step="0.01" min="0" required>
+        <label asp-for="Price" class="form-label"></label>
+        <input asp-for="Price" class="form-control" step="0.01" min="0" required>
     </div>
     <div class="mb-3">
-        <label for="Image" class="form-label">Image URL</label>
-        <input type="text" name="Image" id="Image" class="form-control">
+        <label asp-for="Image" class="form-label">Image URL</label>
+        <input asp-for="Image" class="form-control">
     </div>
     <div class="mb-3">
-        <label for="CategoryId" class="form-label">Category</label>
-        <select name="CategoryId" id="CategoryId" class="form-select" required>
-            <option value="">Select a category</option>
-            @foreach (var item in ViewBag.Categories)
-            {
-            <option value="@item.CategoryId">@item.Name</option>
-            }
+        <label asp-for="CategoryId" class="form-label">Category</label>
+        <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-select" required>
+            <option value="0">Hepsi</option>
+          
         </select>
     </div>
     <div class="mb-3 form-check">
-        <input type="checkbox" name="IsActive" id="IsActive" class="form-check-input">
-        <label for="IsActive" class="form-check-label">Is Active</label>
+        <input  class="form-check-input">
+        <label asp-for="IsActive" class="form-check-label">Is Active</label>
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
